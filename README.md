@@ -10,4 +10,4 @@ Not yet published
 Frontend is built with react.js
 
 ## Backend
-Backend is built with express/mongo
+Backend (express/mongo)
