@@ -20,7 +20,7 @@ const NavBar = () => {
         <div className='navbar' >
             <ul className='navbar-nav' >
                 <li className='logo'>
-                    <a className='nav-link'>
+                    <a href='/' className='nav-link'>
                         <img src={reactlogo} alt={'React'} />
                         <div className='link-text'>
                             React.jm
@@ -29,10 +29,10 @@ const NavBar = () => {
 
                 </li>
                 {
-                    navItems.map(item => {
+                    navItems.map((item, i) => {
                         return (
-                            <li className='nav-item' >
-                                <a className='nav-link'>
+                            <li className='nav-item' key={i} >
+                                <a href='/' className='nav-link'>
                                     <img src={item.icon} alt={item.text} />
                                     <div className='link-text'>
                                         {item.text}

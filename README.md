@@ -1,13 +1,12 @@
 # react-playground
 Playground for testing different react components and other stuff related to webdevelopment
 
+
 Live demo on Heroku:
-```
-Not yet published
-```
+[Here](https://floating-caverns-59634.herokuapp.com/)
 
 ## Frontend
 Frontend is built with react.js
 
 ## Backend
-Backend (express/mongo)
+Backend is built with express/mongo
