@@ -1,9 +1,11 @@
 import React from 'react'
 import home from '../assets/images/home.svg'
-import right from '../assets/images/arrow-right.svg'
+import book from '../assets/images/book.svg'
 import reactlogo from '../assets/images/react.svg'
+import { Link, useHistory } from 'react-router-dom'
 
 const NavBar = () => {
+    const history = useHistory()
     const navItems = [
         {
             text: 'Home',
@@ -11,33 +13,33 @@ const NavBar = () => {
             path: '/'
         },
         {
-            text: 'Right',
-            icon: right,
-            path: '/right'
+            text: 'Blog',
+            icon: book,
+            path: '/blogposts'
         },
     ]
     return (
         <div className='navbar' >
             <ul className='navbar-nav' >
                 <li className='logo'>
-                    <a href='/' className='nav-link'>
+                    <Link to='/' className='nav-link'>
                         <img src={reactlogo} alt={'React'} />
                         <div className='link-text'>
                             React.jm
                         </div>
-                    </a>
+                    </Link>
 
                 </li>
                 {
                     navItems.map((item, i) => {
                         return (
                             <li className='nav-item' key={i} >
-                                <a href='/' className='nav-link'>
+                                <Link to={item.path} className='nav-link' >
                                     <img src={item.icon} alt={item.text} />
                                     <div className='link-text'>
                                         {item.text}
                                     </div>
-                                </a>
+                                </Link>
                             </li>
                         )
                     })

@@ -1,23 +1,16 @@
 import React from 'react'
+import { Redirect, Route } from 'react-router-dom'
 
-const PrivateRoute = () => {
+const PrivateRoute = ({ path, exact, children }) => {
 
     return (
         <Route path={path} exact={exact}>
-            {user ?
-
-                <div className="container">
-                    <Navbar />
-                    <div className="grid-main">
-                        {children}
-                    </div>
-                    <Footer />
-                </div>
+            {true ?
+                <>
+                    {children}
+                </>
                 :
-                user.role_id !== '5' ?
-                    <Redirect to='/' />
-                    :
-                    <Redirect to='/raportit' />
+                <Redirect to='/' />
             }
         </Route >
     )
