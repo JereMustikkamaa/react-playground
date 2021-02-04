@@ -9,11 +9,18 @@ function App() {
       <NavBar />
       <main>
         <Switch>
-          {/* HOME */}
-          <Route path='/blogposts'>
-            <Blog/>
+          {/* BLOGPOST */}
+          <Route path='/blogposts/:id'>
+            <div>saddsaadsas</div>
           </Route>
-          <Route path='/'>
+
+          {/* BLOG */}
+          <Route path='/blogposts'>
+            <Blog />
+          </Route>
+          
+          {/* HOME */}
+          <Route path='/' exact={true}>
             <h2>React.js</h2>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae impedit ipsum excepturi, reiciendis a sed provident iste facere inventore, fugit facilis voluptate quod laudantium placeat nisi fugiat porro iure quasi?
             Voluptatibus deserunt placeat a magnam blanditiis quidem odio? Eius sit cumque omnis nihil, earum ipsum sequi laboriosam quisquam accusantium dolore pariatur, optio mollitia facilis quae totam iure cupiditate quo voluptatum.
@@ -27,6 +34,10 @@ function App() {
             Eaque aliquam quisquam tempore optio alias? Deserunt qui similique assumenda ea recusandae, provident illo eos tenetur molestiae omnis quasi illum laborum doloremque sed, odit nisi quos rerum animi nemo veritatis.
           </Route>
 
+          {/* Non existing route */}
+          <Route path='/' >
+            <h1>404</h1>
+          </Route>
         </Switch>
 
       </main>

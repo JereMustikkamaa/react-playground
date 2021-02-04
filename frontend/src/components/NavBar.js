@@ -2,10 +2,9 @@ import React from 'react'
 import home from '../assets/images/home.svg'
 import book from '../assets/images/book.svg'
 import reactlogo from '../assets/images/react.svg'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
-    const history = useHistory()
     const navItems = [
         {
             text: 'Home',
