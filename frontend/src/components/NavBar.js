@@ -5,23 +5,11 @@ import signin from '../assets/images/sign-in.svg'
 import signout from '../assets/images/sign-out.svg'
 import reactlogo from '../assets/images/react.svg'
 import { Link } from 'react-router-dom'
-import Modal from 'react-modal'
 import LoginForm from './LoginForm'
 
 const NavBar = () => {
     const [modalOpen, setModalOpen] = useState(false)
     const ref = useRef(null)
-
-    const customStyles = {
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)'
-        }
-    }
 
     const navItems = [
         {
@@ -90,27 +78,6 @@ const NavBar = () => {
                         </div>
                     </li>
                 </ul>
-                {/* <Modal
-                isOpen={modalOpen}
-                contentLabel='Login '
-                onRequestClose={() => setModalOpen(false)}
-                style={customStyles}
-                shouldCloseOnOverlayClick={true}
-                ariaHideApp={false}
-            > */}
-                {/* <div className='login'>
-                    <h2>Sign In</h2>
-                    <form className='login-form'>
-                        <input placeholder='Email' type='email' value={email} onChange={({ target }) => setEmail(target.value)} />
-                        <input placeholder='Password' value={password} type='password' onChange={({ target }) => setPassword(target.value)} />
-                    </form>
-                    <div className='login-buttons'>
-                        <button>Cancel</button>
-                        <button>Login</button>
-                    </div>
-                </div> */}
-
-                {/* </Modal> */}
             </div>
             {modalOpen &&
                 <div ref={ref} id='login'>
