@@ -19,6 +19,10 @@ body {
   margin: 0;
   padding: 0;
 }
+button {
+  padding: .5rem;
+  margin: .5rem;
+}
 
 body::-webkit-scrollbar {
   width: 0.25rem;
@@ -52,6 +56,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+
 }
 
 .nav-item {
@@ -60,6 +66,7 @@ main {
 
 .nav-item:last-child {
   margin-top: auto;
+  cursor: pointer;
 }
 
 .nav-link {
@@ -107,6 +114,77 @@ main {
   transform: rotate(-180deg);
 }
 
+/* LOGIN */
+/* .login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.login-form{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.login-buttons{
+
+} */
+
+.login-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: var(--bg-primary);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #ffffff;
+  font-size: 12px;
+}
+body *:not(.focus) { 
+  /* filter: blur(3px);  */
+} 
 /* BLOGPOSTS */
 
 .blogposts-main {
@@ -134,10 +212,12 @@ main {
   border-radius: 1rem;
   /* background-color: rgb(218, 218, 218); */
 }
-.blogpost:hover{
+
+.blogpost:hover {
   transform: scale(1.01);
   transition: transform 100ms;
 }
+
 .bp-initials {
   padding: 1rem;
   margin: 1rem;
@@ -148,6 +228,7 @@ main {
   border: 1px solid var(--border-color);
   border-radius: 50%;
 }
+
 /* .bp-header{
   
 } */
