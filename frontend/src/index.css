@@ -127,6 +127,7 @@ main {
 
 .navbar {
   position: fixed;
+  z-index: 100;
   user-select: none;
   background-color: var(--bg-primary);
   transition: width 200ms ease;
@@ -196,22 +197,48 @@ main {
   transform: rotate(-180deg);
 }
 
+/* NOTIFICATION */
+
+.notification {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  padding: 1em;
+  width: auto;
+  min-height: 1em;
+  border-radius: 5px;
+  animation: slide 3s;
+  z-index: 150;
+}
+
+.success {
+  background-color: #fcfff5;
+  color: #2c662d;
+  border: 1px #2c662d solid;
+}
+
+.failure {
+  background-color: #fff6f6;
+  color: #9f3a38;
+  border: 1px #9f3a38 solid;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-110%);
+  }
+  20% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-110%);
+  }
+}
+
 /* LOGIN */
-
-/* .login{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-.login-form{
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-}
-.login-buttons{
-
-} */
 
 .login-box {
   z-index: 100;
@@ -225,6 +252,8 @@ main {
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
   border-radius: 10px;
+  filter: opacity(1);
+  transition: filter 10s;
 }
 
 .login-box h2 {
@@ -275,9 +304,11 @@ main {
   background-color: var(--text-secondary);
   border-radius: .1rem;
 }
-.login-btn{
+
+.login-btn {
   background-color: #fed0b1ff;
 }
+
 .login-btn:hover {
   background: #ffffff;
   color: rgb(0, 0, 0);

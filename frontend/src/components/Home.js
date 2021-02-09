@@ -25,7 +25,7 @@ const Home = () => {
         <div >
             <div className='home-header' style={headerStyle} >
                 <h2>React.jm</h2>
-                <div>This is my portfolio/website. I use it to play with react and other web stuff. It will always be a work in progress.</div>
+                <div>This is my portfolio site. It's mainly for testing different things, so it's getting updated somewhat regularly, but it's still a work in progress, </div>
             </div>
 
             <div className='home-div' style={textStyle} >

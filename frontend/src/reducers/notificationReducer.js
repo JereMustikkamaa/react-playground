@@ -17,7 +17,7 @@ export const notificationReducer = (state = initialState, { type, payload }) => 
 
 
 //ACTION CREATORS
-export const errorAction = (payload) => {
+export const showErrorNotification = (payload) => {
     return dispatch => {
         dispatch({
             type: 'SHOW_ERROR',
@@ -31,7 +31,7 @@ export const errorAction = (payload) => {
     }
 }
 
-export const successAction = (payload) => {
+export const showSuccessNotification = (payload) => {
     return dispatch => {
         dispatch({
             type: 'SHOW_SUCCESS',

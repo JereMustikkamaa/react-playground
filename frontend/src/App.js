@@ -3,6 +3,7 @@ import Background from './components/Background'
 import Blog from './components/Blog'
 import Home from './components/Home'
 import NavBar from './components/NavBar'
+import Notification from './components/Notification'
 
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
   return (
     <div >
       <NavBar />
-      <Background/>
+      <Background />
+      <Notification />
       <main>
         <Switch>
           {/* BLOGPOST */}

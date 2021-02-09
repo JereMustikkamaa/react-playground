@@ -5,24 +5,17 @@ import signin from '../assets/images/sign-in.svg'
 import signout from '../assets/images/sign-out.svg'
 import reactlogo from '../assets/images/react.svg'
 import { Link } from 'react-router-dom'
-import Modal from 'react-modal'
 import LoginForm from './LoginForm'
+import { useDispatch, useSelector } from 'react-redux'
+import { logoutAction } from '../reducers/loginReducer'
 
 const NavBar = () => {
     const [modalOpen, setModalOpen] = useState(false)
     const ref = useRef(null)
+    const user = useSelector(state => state.user)
+    const dispatch = useDispatch()
 
-    const customStyles = {
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)'
-        }
-    }
-
+    console.log(user)
     const navItems = [
         {
             text: 'Home',
@@ -37,9 +30,7 @@ const NavBar = () => {
     ]
 
     useEffect(() => {
-        // add when mounted
         document.addEventListener('mousedown', handleClick)
-        // return function to be called when unmounted
         return () => {
             document.removeEventListener('mousedown', handleClick)
         }
@@ -79,35 +70,14 @@ const NavBar = () => {
                         })
                     }
                     <li className='nav-item' >
-                        <div className='nav-link' onClick={() => setModalOpen(true)}>
-                            <img src={true ? signin : signout} alt='login' />
+                        <div className='nav-link' onClick={() => !user ? setModalOpen(!modalOpen) : dispatch(logoutAction())}>
+                            <img src={!user ? signin : signout} alt='login' />
                             <div className='link-text'>
-                                {true ? 'Sign In' : 'Sign Out'}
+                                {!user ? 'Sign In' : 'Sign Out'}
                             </div>
                         </div>
                     </li>
                 </ul>
-                {/* <Modal
-                isOpen={modalOpen}
-                contentLabel='Login '
-                onRequestClose={() => setModalOpen(false)}
-                style={customStyles}
-                shouldCloseOnOverlayClick={true}
-                ariaHideApp={false}
-            > */}
-                {/* <div className='login'>
-                    <h2>Sign In</h2>
-                    <form className='login-form'>
-                        <input placeholder='Email' type='email' value={email} onChange={({ target }) => setEmail(target.value)} />
-                        <input placeholder='Password' value={password} type='password' onChange={({ target }) => setPassword(target.value)} />
-                    </form>
-                    <div className='login-buttons'>
-                        <button>Cancel</button>
-                        <button>Login</button>
-                    </div>
-                </div> */}
-
-                {/* </Modal> */}
             </div>
             {modalOpen &&
                 <div ref={ref} id='login' className='login-open'>
