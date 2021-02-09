@@ -5,21 +5,21 @@ const User = mongoose.model('User')
 const jwt = require('jsonwebtoken')
 const router = express.Router()
 
-router.post('/signup', async (req, res) => {
-    try {
-        console.log(req.body)
-        const { email, password } = req.body
+// router.post('/signup', async (req, res) => {
+//     try {
+//         console.log(req.body)
+//         const { email, password } = req.body
 
-        const user = new User({ email, password })
-        await user.save()
+//         const user = new User({ email, password })
+//         await user.save()
 
-        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET)
+//         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET)
 
-        res.send({ token })
-    } catch (e) {
-        return res.status(422).send(e.message)
-    }
-})
+//         res.send({ token })
+//     } catch (e) {
+//         return res.status(422).send(e.message)
+//     }
+// })
 
 router.post('/signin', async (req, res) => {
     const { email, password } = req.body
