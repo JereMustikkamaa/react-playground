@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import clouds from '../assets/images/clouds.svg'
 import clouds_small from '../assets/images/clouds_small.svg'
 
 const Background = () => {
-    const [style, setStyle] = useState({})
+    const [style, setStyle] = useState(null)
+
+    // const location = useLocation()
+    // if (location.pathname !== '/' && style) {
+    //     setStyle({ filter: 'blur(10px)' })
+    // }
+
     useEffect(() => {
         document.addEventListener('scroll', handleScroll)
         return () => document.removeEventListener('scroll', handleScroll)
     }, [])
-
     const handleScroll = () => {
         // console.log(window.scrollY)
         let y = window.scrollY
@@ -17,6 +23,7 @@ const Background = () => {
         blur > 10 && (blur = 10)
         setStyle({ filter: `blur(${blur}px)` })
     }
+
     return (
         <>
             <div className='bg-box'>

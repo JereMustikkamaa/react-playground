@@ -15,7 +15,6 @@ const NavBar = () => {
     const user = useSelector(state => state.user)
     const dispatch = useDispatch()
 
-    console.log(user)
     const navItems = [
         {
             text: 'Home',
@@ -38,12 +37,12 @@ const NavBar = () => {
 
     const handleClick = e => {
         if (ref && ref.current) {
-            if (ref.current.contains(e.target)) return 
-            setModalOpen(false)
+            if (ref.current.contains(e.target)) setModalOpen(false)
         }
     }
     return (
         <>
+
             <div className='navbar' >
                 <ul className='navbar-nav' >
                     <li className='logo'>
@@ -80,7 +79,8 @@ const NavBar = () => {
                 </ul>
             </div>
             {modalOpen &&
-                <div ref={ref} id='login' className='login-open'>
+                <div id='login' className='login-open'>
+                    <div className='dimmer' ref={ref} />
                     <LoginForm setModalOpen={setModalOpen} />
                 </div>
             }

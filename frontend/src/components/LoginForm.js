@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { loginAction } from '../reducers/loginReducer'
 import { showErrorNotification } from '../reducers/notificationReducer'
 
-const LoginForm = ({setModalOpen}) => {
+const LoginForm = ({ setModalOpen }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch()
@@ -12,7 +12,8 @@ const LoginForm = ({setModalOpen}) => {
         if (email === '' || password === '') {
             dispatch(showErrorNotification('Fill out all fields'))
         } else {
-            dispatch(loginAction({email, password}))
+            dispatch(loginAction({ email, password }))
+            setModalOpen(false)
         }
     }
     return (
@@ -20,16 +21,16 @@ const LoginForm = ({setModalOpen}) => {
             <h2>Login</h2>
             <form>
                 <div className="user-box">
-                    <input required value={email} onChange={({ target }) => setEmail(target.value)} />
+                    <input required value={email} onChange={({ target }) => setEmail(target.value)} onKeyDown={(e) => e.key === 'Enter' && login(e)}/>
                     <label>Username</label>
                 </div>
                 <div className="user-box">
-                    <input required value={password} type='password' onChange={({ target }) => setPassword(target.value)} />
+                    <input required value={password} type='password' onChange={({ target }) => setPassword(target.value)} onKeyDown={(e) => e.key === 'Enter' && login(e)}/>
                     <label>Password</label>
                 </div>
                 <div className='login-buttons'>
                     <div className='login-btn' onClick={login}>Login</div>
-                    <div onClick={()=> setModalOpen(false)}>Cancel</div>
+                    <div onClick={() => setModalOpen(false)}>Cancel</div>
                 </div>
             </form>
         </div>

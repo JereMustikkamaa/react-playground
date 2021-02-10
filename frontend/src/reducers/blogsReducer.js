@@ -1,5 +1,5 @@
 import { getAllBlogs } from '../services/blogs'
-import { errorAction } from './notificationReducer'
+import { showErrorNotification } from './notificationReducer'
 const initialState = {}
 
 
@@ -12,7 +12,7 @@ export const blogReducer = (state = initialState, { type, payload }) => {
         case 'ERROR':
             return { loading: false }
         case 'GET-SUCCESS':
-            return { loading: false, payload }
+            return { loading: false, blogposts: payload }
         case 'CREATE-SUCCESS':
             return { loading: false, blogposts: payload }
         default:
@@ -22,19 +22,19 @@ export const blogReducer = (state = initialState, { type, payload }) => {
 
 
 //ACTION CREATORS
-export const getBlogpostsAction = (payload) => {
+export const getBlogpostsAction = () => {
     return async dispatch => {
         try {
             dispatch({
                 type: 'REQUEST'
             })
-            const data = getAllBlogs(payload)
+            const data = await getAllBlogs()
             dispatch({
                 type: 'GET-SUCCESS',
                 payload: data
             })
         } catch (e) {
-            errorAction('Error fetching blogposts')
+            showErrorNotification('Error fetching blogposts')
         }
 
     }

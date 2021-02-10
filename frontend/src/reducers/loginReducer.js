@@ -27,14 +27,14 @@ export const loginAction = (payload) => {
         try {
             const user = await loginService(payload)
             saveUser(user)
-            dispatch(showSuccessNotification('Welcome back!'))
             dispatch({
                 type: 'LOGIN',
                 payload: user
             })
+            dispatch(showSuccessNotification('Welcome back!'))
         } catch (e) {
+            console.error(e)
             dispatch(showErrorNotification('Wrong username or password'))
-            throw new Error('fail')
         }
 
     }

@@ -5,8 +5,7 @@ const Blog = mongoose.model('Blog')
 const requireAuth = require('../utils/requireAuth')
 
 blogRouter.get('/', async (request, response) => {
-    const blogs = await Blog.find({})
-        .populate('user', { username: 1, name: 1 })
+    const blogs = await Blog.find({}).populate('user', { email: 1 })
     console.log(blogs)
     response.json(blogs.map(blog => blog.toJSON()))
 })
@@ -28,7 +27,7 @@ blogRouter.post('/', requireAuth, async (request, response, next) => {
         const savedBlog = await blog.save()
         // user.blogs = user.blogs.concat(savedBlog._id)
         // await user.save()
-        await savedBlog.populate('user', { username: 1, name: 1 }).execPopulate();
+        await savedBlog.populate('user', { email: 1 }).execPopulate();
         response.json(savedBlog.toJSON())
 
     } catch (e) {
@@ -49,7 +48,6 @@ blogRouter.delete('/:id', requireAuth, async (req, response, next) => {
 
             if (blog.user.toString() === user.id.toString()) {
                 await Blog.findByIdAndRemove(id)
-                console.log('poistettu')
                 response
                     .status(204)
                     .json({ message: "blog deleted" })

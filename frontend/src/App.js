@@ -1,6 +1,7 @@
 import { Route, Switch } from 'react-router-dom'
 import Background from './components/Background'
 import Blog from './components/Blog'
+import Blogpost from './components/Blogpost'
 import Home from './components/Home'
 import NavBar from './components/NavBar'
 import Notification from './components/Notification'
@@ -17,7 +18,7 @@ function App() {
         <Switch>
           {/* BLOGPOST */}
           <Route path='/blogposts/:id'>
-            <div>saddsaadsas</div>
+            <Blogpost />
           </Route>
 
           {/* BLOG */}
