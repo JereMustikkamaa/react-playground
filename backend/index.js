@@ -27,8 +27,10 @@ mongoose.connection.on('error', (err) => {
   error('error connecting to mongo db', err)
 })
 
+const staticServe = express.static('build')
+
 /* MIDDLEWARE */
-app.use(express.static('build')) // FRONTEND
+app.use(staticServe)
 app.use(cors())
 app.use(express.json())
 
@@ -37,7 +39,7 @@ app.use(authRoutes)
 app.use('/api/blogs', blogRouter)
 
 /* END MIDDLEWARE */
-app.use(unknownEndpoint)
+app.use('*', staticServe) // FRONTEND
 app.use(errorHandler)
 
 const port = config.PORT || 3001
