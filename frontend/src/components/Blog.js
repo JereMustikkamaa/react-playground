@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { getBlogpostsAction } from '../reducers/blogsReducer'
-import Blogpost from './Blogpost'
 
 const Blog = () => {
     const history = useHistory()

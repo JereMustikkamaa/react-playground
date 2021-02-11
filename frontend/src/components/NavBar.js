@@ -4,6 +4,7 @@ import book from '../assets/images/book.svg'
 import signin from '../assets/images/sign-in.svg'
 import signout from '../assets/images/sign-out.svg'
 import reactlogo from '../assets/images/react.svg'
+import arrow from '../assets/images/arrow-right.svg'
 import { Link } from 'react-router-dom'
 import LoginForm from './LoginForm'
 import { useDispatch, useSelector } from 'react-redux'
@@ -25,6 +26,11 @@ const NavBar = () => {
             text: 'Blog',
             icon: book,
             path: '/blogposts'
+        },
+        {
+            text: 'RTG',
+            icon: arrow,
+            path: '/react-transition-groups'
         }
     ]
 
